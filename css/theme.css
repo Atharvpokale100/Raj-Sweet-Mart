@@ -1,0 +1,97 @@
+/* Common Theme Styles */
+:root {
+    /* Light Theme Variables */
+    --light-bg: #ffffff;
+    --light-text: #000000;
+    --light-secondary: #333333;
+    --light-card-bg: rgba(255, 255, 255, 0.8);
+    --light-shadow: rgba(0, 0, 0, 0.1);
+    
+    /* Dark Theme Variables */
+    --dark-bg: #121212;
+    --dark-text: #ffffff;
+    --dark-secondary: #f0f0f0;
+    --dark-card-bg: rgba(18, 18, 18, 0.8);
+    --dark-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* Light Theme (Default) */
+body {
+    background-color: var(--bg-light);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+}
+
+/* Header Styles */
+.menu-header h1,
+.diwali-header-section h1,
+.contact-header h1 {
+    color: var(--light-text);
+    text-shadow: 2px 2px 4px var(--light-shadow);
+}
+
+.menu-header p,
+.diwali-header-section p,
+.contact-header p {
+    color: var(--light-secondary);
+}
+
+/* Card and Container Styles */
+.sweets-container,
+.diwali-container,
+.contact-container {
+    background: var(--light-card-bg);
+    backdrop-filter: blur(10px);
+}
+
+/* Dark Theme */
+.dark-theme {
+    background-color: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+.dark-theme .menu-header h1,
+.dark-theme .diwali-header-section h1,
+.dark-theme .contact-header h1 {
+    color: var(--dark-text);
+    text-shadow: 2px 2px 4px var(--dark-shadow);
+}
+
+.dark-theme .menu-header p,
+.dark-theme .diwali-header-section p,
+.dark-theme .contact-header p {
+    color: var(--dark-secondary);
+}
+
+.dark-theme .sweets-container,
+.dark-theme .diwali-container,
+.dark-theme .contact-container {
+    background: var(--dark-card-bg);
+}
+
+/* Header and content visibility fixes */
+.hero-content h1,
+.menu-header h1,
+.diwali-header-section h1 {
+    color: inherit;
+}
+
+.hero-content h3,
+.hero-content h4,
+.menu-header p,
+.diwali-header-section p {
+    color: white;
+}
+
+/* Card backgrounds */
+.sweet-item,
+.diwali-item {
+    background: var(--bg-light);
+    color: var(--text-light);
+}
+
+.dark-theme .sweet-item,
+.dark-theme .diwali-item {
+    background: #242424;
+    color: var(--text-dark);
+}

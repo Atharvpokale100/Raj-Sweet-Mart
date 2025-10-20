@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        // Set dark theme class before CSS loads to prevent white flash
+        try {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+                document.body.classList.add('dark-theme');
+            }
+        } catch (e) { }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raj Sweet Mart - Home</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&display=swap');
+
+        /* Ensure all content is above video */
+        body,
+        .navbar,
+        .hero,
+        .whatsapp-float {
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+    <!-- Theme CSS - Add this before your main CSS -->
+    <link rel="stylesheet" href="css/theme.css">
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+</head>
+
+<body class="background-image">
+    <!-- Fallback Background -->
+    <div class="video-fallback"></div>
+
+    <!-- Loading Indicator -->
+    <div class="video-loading" id="videoLoading">
+        <div class="loading-spinner"></div>
+        <p>Loading background video...</p>
+    </div>
+
+    <!-- Video Overlay -->
+    <div class="video-overlay"></div>
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">RAJ SWEET MART</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="menu.html" class="nav-button">Menu</a>
+                <a href="diwali.html" class="nav-button">Diwali-Special</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+            <style>
+                .nav-links .nav-button {
+                    color: white !important;
+                }
+            </style>
+
+            <!-- Theme toggle button -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle light/dark mode" type="button">
+                <i class="fas fa-moon"></i>
+            </button>
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span id="menu-icon">☰</span>
+            </button>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="menu.html" class="mobile-nav-link">Menu</a>
+            <a href="diwali.html" class="mobile-nav-link">Diwali Special</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+        <!-- Mobile menu overlay -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Raj Sweet Mart</h1>
+            <style>
+                @import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Merienda:wght@300..900&display=swap');
+            </style>
+            <!-- <p class="hero-description">Discover the finest sweets and treats at Raj Sweet Mart</p> -->
+            <div class="hotel-logo">
+                <img src="/images/newlogo.png" alt="Raj Sweet Mart Logo" class="logo-image">
+            </div>
+            <p class="surname">पोकळे बंधू</p>
+            <h3>Opening time: 7:00 AM</h3>
+            <h3>Closing time: 10:00 PM</h3>
+            <br>
+            <h4>Address: Bari Pura Old Town, Badnera, Amravati</h4>
+            <a href="menu.html" class="cta-button">Explore Menu</a>
+            <br><br>
+            <a href="contact.html" class="cta-button">View Location on Map</a>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/+919850937027" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <div class="background-slideshow">
+        <div class="slide-wrapper">
+            <img src="/images/chakli.jpg" class="bg-slide active"
+            alt="Background 1">
+            <img src="/images/anarsaa.jpg" class="bg-slide" alt="Background 2">
+            <img src="/images/karanji.jpg" class="bg-slide" alt="Background 3">
+            <img src="/images/chivdaa.jpg" class="bg-slide" alt="Background 4">
+            <img src="/images/shankarpada.jpg" class="bg-slide" alt="Background 5">
+            <img src="/images/gulab-jamun-desi ghee.jpg" class="bg-slide" alt="Background 6">
+        </div>
+        <div class="overlay"></div>
+    </div>
+
+    <script src="/js/script.js"></script>
+</body>
+
+</html>

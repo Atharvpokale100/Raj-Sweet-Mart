@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script>
+        // Set dark theme class before CSS loads to prevent white flash
+        try {
+            if (localStorage.getItem('theme') === 'dark') {
+                document.documentElement.classList.add('dark-theme');
+                document.body.classList.add('dark-theme');
+            }
+        } catch (e) { }
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diwali-Special - RajSweetMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/diwali.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Merienda:wght@300..900&family=Noto+Sans+Sunuwar&display=swap');
+
+
+        /* Welcome splash styles */
+        .welcome-splash{
+            position:fixed;
+            inset:0;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            background-image: url('/images/wel.jpg');
+            background-position:center center;
+            background-repeat:no-repeat;
+            background-size:cover;
+            background-color: rgba(0,0,0,0.25);
+            background-blend-mode: overlay;
+            z-index:9999;
+            -webkit-backdrop-filter: blur(3px);
+            backdrop-filter: blur(3px);
+            transition:opacity .35s ease, transform .35s ease;
+        }
+        /* overlay for better legibility on busy images */
+        .welcome-splash::before{
+            content:'';
+            position:absolute;
+            inset:0;
+            background:linear-gradient(rgba(0,0,0,0.42), rgba(0,0,0,0.32));
+            z-index:1;
+            pointer-events:none;
+        }
+        /* message container: full-bleed text on desktop, constrained on small screens */
+        .welcome-content{
+            position:relative;
+            z-index:2;
+            width:100%;
+            padding:0; /* remove boxed padding for full-bleed */
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            min-height:100vh;
+        }
+
+    .welcome-message{ text-align:center; color:var(--welcome-text, #fff); padding:28px 16px; }
+    /* Warm gold headline with shadow for contrast on busy images */
+    .welcome-line1{ font-family: 'Merienda', cursive; font-weight:700; color:#ffffff; text-shadow:0 6px 18px rgba(0,0,0,0.6); }
+    .welcome-line2{ font-family: inherit; margin-top:8px; color:#ffffff; text-shadow:0 4px 14px rgba(0,0,0,0.55); }
+
+        /* Hidden state */
+        .welcome-splash.hidden{ opacity:0; pointer-events:none; transform:translateY(-10px); }
+
+        /* Responsive sizes */
+        @media (max-width:420px){
+            .welcome-line1{ font-size:22px; }
+            .welcome-line2{ font-size:14px }
+            /* mobile framing: stronger zoom and shift toward top for better composition on narrow screens */
+            .welcome-splash{
+                /* prefer a mobile-cropped image but fall back to the desktop image if missing */
+                background-image: url('/images/wel-mobile.jpg'), url('/images/wel.jpg');
+                /* first image (mobile) is zoomed and shifted; second image stays centered */
+                background-position: center 10%, center center;
+                background-size: 220%, cover;
+                background-repeat: no-repeat, no-repeat;
+                background-attachment: scroll, scroll;
+            }
+            .welcome-message{ padding:10px 12px; }
+        }
+
+        @media (min-width:900px){
+            .welcome-message{ padding:0 40px; }
+            .welcome-line1{ font-size:72px; line-height:0.95; }
+            .welcome-line2{ font-size:36px; }
+        }
+    </style>
+
+</head>
+<div class="announcement-bar">
+    <div class="scrolling-text">
+        🎉 <strong>Festive Special Deals are Live Now! </strong>
+
+         | <strong>Get Diwali-Special अनरसा - करंजी - चकली |</strong>
+        <strong>FREE Delivery Available only in Badnera</strong> on orders above ₹999/- |
+        Hurry up!  ✨ Enjoy
+
+    </div>
+</div>
+
+<body class="background-image">
+    <!-- Welcome splash (shows for 5 seconds) -->
+    <div id="welcomeSplash" class="welcome-splash" role="dialog" aria-label="Welcome splash">
+        <div class="welcome-content" aria-hidden="false">
+            <div class="welcome-message" role="text" aria-label="Welcome to Raj Sweet Mart. Diwali Specials">
+                <div class="welcome-line1">Welcome to Raj Sweet Mart</div>
+                <div class="welcome-line2">Diwali Specials — Fresh & Delicious</div>
+            </div>
+        </div>
+    </div>
+    <!-- ---------------- -->
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">RAJ SWEET MART</a>
+            </div>
+
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="menu.html" class="nav-button">Menu</a>
+                <a href="diwali.html" class="nav-button">Diwali-Special</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+
+            <!-- Search box (visible on desktop/laptop) -->
+            <form class="nav-search" onsubmit="event.preventDefault();">
+                <input type="text" id="navSearchInput" placeholder="Search items...">
+                <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+            </form>
+
+            <!-- Theme toggle button -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle light/dark mode" type="button">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span id="menu-icon">☰</span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="menu.html" class="mobile-nav-link">Menu</a>
+            <a href="diwali.html" class="mobile-nav-link">Diwali-Special</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+
+        <!-- Mobile menu overlay -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    </nav>
+
+    <!-- Diwali Banner -->
+    <div class="diwali-banner">
+        <img src="/images/diwali-banner.png" alt="Diwali Banner" class="diwali-image">
+    </div>
+
+    <!-- Main Content: Diwali Special Header and Sweets -->
+    <main class="main-content" style="padding: 40px 0 0 0;">
+        <!-- Diwali Page Header -->
+        <header class="diwali-header-section">
+            <div class="diwali-header-content">
+                <h1>Diwali Special Sweets</h1>
+
+                <!-- Add the slider -->
+                <div class="header-slider">
+                    <div class="slider-container">
+                        <img src="/images/chakli.jpg" alt="Sweet 1" class="slider-image">
+                        <img src="/images/karanji.jpg" alt="Sweet 2" class="slider-image">
+                        <img src="/images/anarsaa.jpg" alt="Sweet 3" class="slider-image">
+                        <img src="/images/chankarpade.jpg" alt="Sweet 4" class="slider-image">
+                        <img src="/images/mix.jpg" alt="Sweet 5" class="slider-image">
+                    </div>
+                </div>
+                <br>
+                <p>Celebrate the festival of lights with our exclusive collection of traditional and premium sweets.
+                    Perfect for gifting and sharing joy!</p>
+                <br>
+                <br>
+            </div>
+        </header>
+
+        <!-- Search bar below heading (visible only on mobile) -->
+        <form class="search-below-heading" onsubmit="event.preventDefault();">
+            <input type="text" id="diwaliSearchInput" placeholder="Search items..." autocomplete="off">
+            <button type="submit" aria-label="Search"><i class="fas fa-search"></i></button>
+        </form>
+
+        <!-- Sweets Section -->
+        <section class="sweets-section">
+            <h1 class="sweets-title">Diwali Sweets</h1>
+
+            <!-- Container for items -->
+            <div class="sweets-container">
+                <!--   ---_________________________________________________________________________________________________________________________________________________________ 
+                     -->
+                <!-- SWEETS CATEGORY -->
+                <!-- Item 1 -->
+                <div class="sweet-item" data-category="Sweets" data-name="Kaju Katli" data-price="₹800/kg">
+                    <div class="sweet-image">
+                        <img src="/images/kaju katli.jpeg" alt="Kaju Katli" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Kaju Katli</h3>
+                        <div class="sweet-price">₹800/kg</div>
+                    </div>
+                </div>
+                <!-- Item 2 -->
+                <div class="sweet-item" data-category="sweets" data-name="Anarsa" data-price="₹350/kg">
+                    <div class="sweet-image">
+                        <img src="/images/anarsaa.jpg" alt="Anarsa" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Anarsa</h3>
+                        <div class="sweet-price">₹350/kg</div>
+                    </div>
+                </div>
+                <!-- Item 3 -->
+                <div class="sweet-item" data-category="sweets" data-name="karanji" data-price="₹350/kg">
+                    <div class="sweet-image">
+                        <img src="/images/karanji.jpg" alt="karanji" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">karanji</h3>
+                        <div class="sweet-price">₹350/kg</div>
+                    </div>
+                </div>
+                <!-- Item 4 -->
+                <div class="sweet-item" data-category="sweets" data-name="Chakli" data-price="₹320/kg">
+                    <div class="sweet-image">
+                        <img src="/images/chakli.jpg" alt="Chakli" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Chakli</h3>
+                        <div class="sweet-price">₹320/kg</div>
+                    </div>
+                </div>
+                <!-- Item 5 -->
+                <div class="sweet-item" data-category="sweets" data-name="Badam Role" data-price="₹400/kg">
+                    <div class="sweet-image">
+                        <img src="/images/badampeda.png" alt="Badam Role" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Badam Peda</h3>
+                        <div class="sweet-price">₹400/kg</div>
+                    </div>
+                </div>
+                <!-- Item 6 -->
+                <div class="sweet-item" data-category="sweets" data-name="Apple Peda" data-price="₹400/kg">
+                    <div class="sweet-image">
+                        <img src="/images/applepeda.png" alt="Apple Peda" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Apple Peda</h3>
+                        <div class="sweet-price">₹400/kg</div>
+                    </div>
+                </div>
+                <!-- Item 7 -->
+                <div class="sweet-item" data-category="sweets" data-name="Besan Barfi" data-price="₹240/kg">
+                    <div class="sweet-image">
+                        <img src="/images/besan barfi.jpeg" alt="Besan Barfi" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Besan Barfi</h3>
+                        <div class="sweet-price">₹240/kg</div>
+                    </div>
+                </div>
+                <!-- Item 8 -->
+                <div class="sweet-item" data-category="sweets" data-name="Pooja Methai Box" data-price="₹100/250gm">
+                    <div class="sweet-image">
+                        <img src="/images" alt="Pooja Methai Box" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Pooja Methai Box </h3>
+                        <div class="sweet-price">₹100/250gm</div>
+                    </div>
+                </div>
+
+                <div class="sweet-item" data-category="sweets" data-name="Mawa Peda" data-price="₹4000/kg">
+                        <div class="sweet-image">
+                            <img src="/images/mawa peda.jpg" alt="Mawa Peda" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Mawa Peda</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Mawa Peda" data-price="₹4000/kg">
+                        <div class="sweet-image">
+                            <img src="/images/mawa role.jpeg" alt="Mawa Role" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Mawa Role</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+
+                     <div class="sweet-item" data-category="sweets" data-name="Chocolate Barfi" data-price="₹400/kg">
+                        <div class="sweet-image">
+                            <img src="/images/chocolate_barfi.jpeg" alt="Chocolate Barfi" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Chocolate Barfi</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Mawa Barfi" data-price="₹4000/kg">
+                        <div class="sweet-image">
+                            <img src="/images/mawa_barfi.jpeg" alt="Mawa Barfi" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Mawa Barfi</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+                    
+                <!-- Item 8 -->
+                <div class="sweet-item" data-category="sweets" data-name="Milk Cake" data-price="₹360/kg">
+                    <div class="sweet-image">
+                        <img src="/images/milkcake.jpeg" alt="Milk Cake" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Milk Cake</h3>
+                        <div class="sweet-price">₹360/kg</div>
+                    </div>
+                </div>
+                
+                <!-- Item 7 -->
+                <div class="sweet-item" data-category="sweets" data-name="Kesar Peda" data-price="₹400/kg">
+                    <div class="sweet-image">
+                        <img src="/images/yello_peda.webp" alt="Kesar Peda" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Kesar Peda</h3>
+                        <div class="sweet-price">₹400/kg</div>
+                    </div>
+                </div>
+                <!-- Item 7 -->
+                <div class="sweet-item" data-category="sweets" data-name="Malai Peda" data-price="₹400/kg">
+                    <div class="sweet-image">
+                        <img src="/images/malai_peda.jpg" alt="Malai Peda" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Malai Peda</h3>
+                        <div class="sweet-price">₹400/kg</div>
+                    </div>
+                </div>
+                  <div class="sweet-item" data-category="sweets" data-name="khaskhas Role" data-price="₹4000/kg">
+                        <div class="sweet-image">
+                            <img src="/images/khaskhas barfi.jpg" alt="Mawa Role" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">khaskhas Role</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+
+
+                    <div class="sweet-item" data-category="sweets" data-name="Pistachocolate Barfi" data-price="₹400/kg">
+                        <div class="sweet-image">
+                            <img src="/images/pistachocolate barfi.jpeg" alt="Pista Barfi" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Pistachocolate Barfi</h3>
+                            <div class="sweet-price">₹400/kg</div>
+                        </div>
+                    </div>
+
+                <!-- Item 7 -->
+                <div class="sweet-item" data-category="sweets" data-name="Shankar pade" data-price="₹160/kg">
+                    <div class="sweet-image">
+                        <img src="/images/shankarpada.jpg" alt="Shankar pade" class="sweet-photo">
+                    </div>
+                    <div class="sweet-details">
+                        <h3 class="sweet-name">Shankar pade</h3>
+                        <div class="sweet-price">₹160/kg</div>
+                    </div>
+                </div>
+                <div class="sweet-item" data-category="sweets" data-name="Motichoor Ladoo" data-price="₹200/kg">
+                        <div class="sweet-image">
+                            <img src="/images/motichoor_laddu.jpg" alt="Motichoor Ladoo" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Motichoor Ladoo</h3>
+                            <div class="sweet-price">₹200/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Bundi ke Ladoo" data-price="₹200/kg">
+                        <div class="sweet-image">
+                            <img src="/images/bundi_ke_ladoo.jpg" alt="Bundi ke Ladoo" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Bundi ke Ladoo</h3>
+                            <div class="sweet-price">₹200/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Tid Laddu" data-price="240/kg">
+                        <div class="sweet-image">
+                            <img src="/images/tid ladoo.jpg" alt="Tid Laddu" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Tid Laddu</h3>
+                            <div class="sweet-price">₹240/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Besan Ladoo" data-price="₹240/kg">
+                        <div class="sweet-image">
+                            <img src="/images/besanladoo.jpeg" alt="Besan Ladoo" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Besan Ladoo</h3>
+                            <div class="sweet-price">₹240/kg</div>
+                        </div>
+                    </div>
+
+                    <div class="sweet-item" data-category="sweets" data-name="Rawa Ladoo" data-price="₹200/kg">
+                        <div class="sweet-image">
+                            <img src="/images/rava ladoo.jpeg" alt="Rawa Ladoo" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Rawa Ladoo</h3>
+                            <div class="sweet-price">₹200/kg</div>
+                        </div>
+                    </div>
+                    <!-- Item 3 -->
+                    <div class="sweet-item" data-category="sweets" data-name="Gulab Jamun" data-price="₹240/kg">
+                        <div class="sweet-image">
+                            <img src="/images/gulab-jamun-desi ghee.jpg" alt="Gulab Jamun" class="sweet-photo">
+                        </div>
+                        <div class="sweet-details">
+                            <h3 class="sweet-name">Gulab Jamun</h3>
+                            <div class="sweet-price">₹240/kg</div>
+                        </div>
+                    </div>
+
+                    </div>
+                <p class="text">
+                    Want to place an order or ask something? Get in touch with Raj Sweet Mart directly!
+                </p>
+
+                  <div class="order-now-container">
+                    <a href="https://wa.me/+919850937027" target="_blank" class="order-now-btn">
+                        <span>Order Now</span>
+                    </a>
+                </div>
+        </section>
+
+           
+              
+
+
+                <style>
+                    .text {
+    font-size: 1.2rem;
+    /* slightly bigger text */
+    font-weight: 500;
+    /* medium bold */
+    color: #444;
+    /* dark gray */
+    text-align: center;
+    /* center align */
+    margin: 50px 0;
+    /* space above and below */
+    line-height: 1.6;
+    /* better readability */
+}
+
+.dark-theme .text {
+    color: #ddd;
+    /* lighter color for dark mode */
+}
+                </style>
+
+        </section>
+    </main>
+
+    <!-- Modal for item details -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="modal-close">&times;</span>
+            <h2 id="modalName" class="modal-title"></h2>
+            <p id="modalDescription" class="modal-description"></p>
+            <p id="modalPrice" class="modal-price"></p>
+            <p id="modalIngredients" class="modal-ingredients"></p>
+            <p id="modalWeights" class="modal-weights"></p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <a href="index.html" class="footer-brand">Raj Sweet Mart</a>
+        <br><br>
+        <div class="footer-container">
+            <!-- Column 1: About -->
+            <div class="footer-column">
+                <h3 class="footer-heading">ABOUT US</h3>
+                <p>A legacy of taste since 1989, serving the best sweets for all your celebrations.</p>
+            </div>
+
+            <!-- Column 2: Quick Links -->
+            <div class="footer-column">
+                <h3 class="footer-heading">QUICK LINKS</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="diwali.html">Diwali Special</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+
+            <!-- Column 3: Contact Info -->
+            <div class="footer-column">
+                <h3 class="footer-heading">CONTACT US</h3>
+                <div class="contact-info">
+                    <a href="https://www.google.com/maps/place/Raj+Sweet+Mart/@20.8633289,77.736937,18.17z/data=!4m14!1m7!3m6!1s0x3bd6bb3bf072e14d:0xbf6accdca4ea7314!2sRaj+Sweet+Mart!8m2!3d20.8633934!4d77.7375688!16s%2Fg%2F11k56mp0mk!3m5!1s0x3bd6bb3bf072e14d:0xbf6accdca4ea7314!8m2!3d20.8633934!4d77.7375688!16s%2Fg%2F11k56mp0mk?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D"
+                        target="_blank"
+                        style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <p style="margin-left: 8px;">Near Lad Mobile Shop, Bari Pura Old Town Badnera , Amravati</p>
+                    </a>
+                </div>
+                <div class="contact-info">
+                    <i class="fa-solid fa-phone"></i>
+                    <p>
+                        <a href="tel:+9850937027" style="color: inherit; text-decoration: none;">+9850937027</a>,
+                        <a href="tel:+9763044667" style="color: inherit; text-decoration: none;">+9763044667</a>,
+                        <a href="tel:+7387191610" style="color: inherit; text-decoration: none;">+7387191610</a>,
+                        <a href="tel:+9130328618" style="color: inherit; text-decoration: none;">+9130328618</a>
+                    </p>
+                </div>
+                <div class="contact-info">
+                    <i class="fas fa-envelope"></i>
+                    <p>
+                        <a href="mailto:atharvpokale10@gmail.com" style="color: inherit; text-decoration: none;">
+                            atharvpokale10@gmail.com
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+
+            <!-- Column 4: Special Offers -->
+            <div class="footer-column">
+                <h3 class="footer-heading">SPECIAL OFFERS</h3>
+                <ul class="special-offers-list">
+                    <li>
+                        <span class="material-symbols-outlined">moped_package</span>
+                        <span>Free Delivery only on Badnera orders above ₹2000</span>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-tag"></i>
+                        <span>Bulk order discounts available</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Raj Sweet Mart. Designed by Atharv Pokale</p>
+        </div>
+    </footer>
+
+    <script src="/js/diwali.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+        });
+    </script>
+   <script>
+       // Welcome splash logic: hide after 5 seconds or when Skip clicked
+        (function(){
+            var splash = document.getElementById('welcomeSplash');
+            var skipBtn = document.getElementById('skipSplash');
+            if(!splash) return;
+
+            var hide = function(){
+                splash.classList.add('hidden');
+                // remove from accessibility tree after animation
+                setTimeout(function(){ splash.setAttribute('aria-hidden','true'); }, 350);
+            };
+
+            var timeoutId = setTimeout(hide, 3000);
+
+            if(skipBtn){
+                skipBtn.addEventListener('click', function(){
+                    clearTimeout(timeoutId);
+                    hide();
+                });
+            }
+
+            // In case user navigates quickly, ensure splash removed on interaction
+            ['keydown','touchstart','pointerdown','wheel'].forEach(function(evt){
+                document.addEventListener(evt, function onFirst(){
+                    clearTimeout(timeoutId);
+                    hide();
+                    document.removeEventListener(evt, onFirst);
+                }, {once:true});
+            });
+        })();
+    </script>
+   <!-- ==========================
+     Modal Structure
+========================== -->
+    <div id="itemModal" class="modal">
+        <div class="modal-content">
+            <span id="modalClose" class="close">&times;</span>
+            <h2 id="modalCategory"></h2>
+            <h3 id="modalName"></h3>
+            <p id="modalDescription"></p>
+            <p id="modalPrice"></p>
+            <p id="modalIngredients"></p>
+            <p id="modalWeights"></p>
+        </div>
+    </div>
+
+</body>
+
+</html>

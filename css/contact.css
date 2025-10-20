@@ -1,0 +1,877 @@
+/* Contact Page Styles */
+
+/* Main Content */
+.main-content {
+    padding-top: 0;
+    /* Remove top padding */
+    min-height: 100vh;
+}
+
+/* Contact Page Header */
+.menu-header {
+    color: black;
+    text-align: center;
+    padding: 0px;
+    /* Reduce padding */
+    margin: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Dark theme styles for header */
+.dark-theme .menu-header {
+    color: white;
+}
+
+.menu-header-content {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.menu-header h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: "Noto Serif", serif;
+    margin-bottom: 10px;
+    /* Reduce margin */
+    /*text-shadow: 2px 2px 4px rgba(0,0,0,0.3);*/
+    color: black;
+}
+
+.text {
+    font-family: 'Bellefair', serif;
+    font-size: 1.2rem;
+    /* slightly bigger text */
+    font-weight: 500;
+    /* medium bold */
+    color: #444;
+    /* dark gray */
+    text-align: center;
+    padding: 3%;
+    /* center align */
+    margin: 50px 0;
+    /* space above and below */
+    line-height: 1.6;
+    /* better readability */
+}
+
+.dark-theme .text {
+    color: #ddd;
+    /* lighter color for dark mode */
+}
+
+.dark-theme .menu-header h1 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.menu-header p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    /* Adjust spacing for the description text */
+    color: black;
+}
+
+.dark-theme .menu-header p {
+    color: white;
+}
+
+/* Announcement Bar */
+.announcement-bar {
+  width: 100%;
+  background: #004d46;
+  color: #fff;
+  overflow: hidden;
+  white-space: nowrap;
+  padding: 8px 0;
+  position: fixed;   /* fixed at very top */
+  top: 0;
+  left: 0;
+  z-index: 9999;     /* stays above everything */
+}
+
+/* Navbar (push it below announcement bar) */
+.navbar {
+  margin-top: 35px;  /* same height as announcement bar */
+}
+
+
+/* Scrolling text */
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  /*Startcompletelyoffscreen*/animation: scroll-left 30s linear infinite;
+  -webkit-animation: scroll-left 50s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Push content down so navbar/page doesn't overlap */
+body {
+  margin-top: 40px; /* adjust height same as bar height */
+}
+/* Container */
+.container {
+    margin: 0 auto;
+    padding: 0;
+    max-width: 1200px;
+}
+
+/* Contact Cards */
+.contact-cards {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: white;
+    border-radius: 15px;
+    padding: 40px 30px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    color: white;
+    font-size: 2rem;
+}
+
+.contact-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.contact-card p {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.card-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.card-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Contact Form Section */
+.contact-form-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.form-container {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.form-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.form-header h2 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.form-header p {
+    opacity: 0.9;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    padding: 40px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #e9ecef;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #ff6b6b;
+    box-shadow: 0 0 0 3px rgba(255, 107, 107, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Checkbox Styling */
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-weight: normal;
+}
+
+.checkbox-label input[type="checkbox"] {
+    width: auto;
+    margin-right: 10px;
+    transform: scale(1.2);
+}
+
+.submit-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    padding: 15px 40px;
+    border-radius: 25px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0 auto;
+}
+
+.submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(255, 107, 107, 0.3);
+}
+
+/* Map Section */
+.map-section {
+    padding: 40px 0;
+}
+
+.map-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.map-placeholder {
+    background: white;
+    border-radius: 15px;
+    padding: 60px 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    border: 2px dashed #ddd;
+}
+
+.map-placeholder i {
+    font-size: 4rem;
+    color: #ff6b6b;
+    margin-bottom: 20px;
+}
+
+.map-placeholder h3 {
+    font-size: 1.8rem;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.map-placeholder p {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.map-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    padding: 13px 70px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.map-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Contact Info Section */
+.contact-info-section {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    text-align: center;
+    margin: 40px auto;
+    max-width: 600px;
+}
+
+.contact-info-section h2 {
+    margin-bottom: 24px;
+    color: #ff6b6b;
+    font-size: 2rem;
+    font-weight: 600;
+}
+
+.contact-info-section div {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #333;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+}
+
+.contact-info-section div strong {
+    display: block;
+    font-size: 1.15em;
+    margin-bottom: 2px;
+}
+
+.contact-info-section div br {
+    display: none;
+}
+
+.contact-info-section i {
+    color: #ff6b6b;
+    font-size: 1.2rem;
+    width: 20px;
+}
+
+/* Dark theme styles for contact info section */
+.dark-theme .contact-info-section {
+    background: #000000;
+    color: white;
+}
+
+.dark-theme .contact-info-section h2 {
+    color: #ff6b6b;
+}
+
+.dark-theme .contact-info-section div {
+    color: #ecf0f1;
+}
+
+.dark-theme .contact-info-section i {
+    color: #ff6b6b;
+}
+
+/* Dark theme styles for map section */
+.dark-theme .map-section {
+    background: #000000;
+}
+
+/* FAQ Section */
+.faq-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.faq-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #e9ecef;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-question {
+    padding: 25px 30px;
+    background: #f8f9fa;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+    background: #e9ecef;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+.faq-question i {
+    color: #ff6b6b;
+    transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    padding: 0 30px;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+    padding: 20px 30px;
+    max-height: 200px;
+}
+
+.faq-answer p {
+    color: #666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+    padding: 80px 0;
+    background: #f8f9fa;
+}
+
+.testimonials-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    color: #333;
+}
+
+.testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.testimonial-card {
+    background: white;
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-content {
+    margin-bottom: 20px;
+}
+
+.testimonial-content p {
+    font-style: italic;
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.1rem;
+}
+
+.testimonial-author h4 {
+    color: #333;
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.testimonial-author span {
+    color: #ff6b6b;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(5px);
+}
+
+.modal-content {
+    background-color: white;
+    margin: 10% auto;
+    padding: 0;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-header {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    padding: 20px 30px;
+    border-radius: 15px 15px 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal-header h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-close {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-body {
+    padding: 30px;
+    text-align: center;
+}
+
+.success-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.modal-body p {
+    color: #666;
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.modal-footer {
+    padding: 20px 30px 30px;
+    text-align: center;
+}
+
+.modal-btn {
+    background: linear-gradient(135deg, #ff6b6b, #ff8e53);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    border-radius: 25px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.modal-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .menu-header {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-header {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-info-section div {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .contact-info-section div br {
+        display: block;
+    }
+
+    .contact-address-block {
+        margin-bottom: 32px !important;
+    }
+}
+
+.contact-address-block {
+    margin-bottom: 32px;
+}
+
+.address-title {
+    margin-bottom: 16px;
+}
+
+
+/* Mobile view center alignment for special offers */
+@media (max-width: 768px) {
+    .special-offers-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .special-offers-list li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .special-offers-list i {
+        margin-right: 8px;
+    }
+
+    .footer-column h3.footer-heading {
+        text-align: center;
+    }
+
+    .footer-column p {
+        text-align: center;
+    }
+}
+
+/* Footer border for dark mode */
+.footer {
+    position: relative;
+}
+
+.dark-theme .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #393939;
+    /* Missing semicolon after #aaa */
+    width: 100%;
+    /* 'width;' had a semicolon instead of colon */
+}
+
+
+/* Footer heading link styling */
+.footer>a {
+    display: inline-block;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 0 40px 13px;
+    margin-top: -1rem;
+    /*font-family: 'Georgia', serif;*/
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.footer>a:hover {
+    color: #e25f38;
+    /*text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);*/
+}
+
+/* Mobile responsive - CENTER ONLY ON MOBILE */
+@media (max-width: 768px) {
+    .footer>a {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+}
+
+
+.footer-heading {
+    font-family: 'Bellefair', serif;
+    font-weight: normal;
+}
+
+.footer-brand {
+    /*font-family: 'Barlow Condensed', sans-serif !important;*/
+    font-size: 2rem;
+    font-weight: 700;
+    color: red;
+}
+
+.footer-brand {
+    /*font-family: "Bellefair", serif;*/
+
+    font-family: "Merienda", cursive;
+    /*font-family: "Noto Sans Sunuwar", sans-serif;*/
+    /*font-family: "Quintessential", serif;*/
+    font-size: 1.5rem;
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.text-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    margin-top: -255px;
+    justify-content: space-between; /* Space between text and button */
+    gap: 20px;
+}
+
+.text {
+    flex: 1; /* Takes up available space */
+}
+
+.sticky-whatsapp {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    background-color: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    transition: all 0.3s ease;
+    margin-left: 1350px;
+    margin-bottom: 100px;
+}
+
+/* Add this new style for the vertical text */
+.sticky-whatsapp::before {
+    content: 'Order on WhatsApp';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    padding-bottom: 20px;
+    color: #25d366;
+    /*font-weight: bold;*/
+    font-size: 60px;
+    white-space: nowrap;
+}
+
+.sticky-whatsapp:hover {
+    background-color: #128C7E;
+    transform: scale(1.1);
+}
+
+/*@media screen and (max-width: 768px) {
+    .sticky-whatsapp::before {
+        writing-mode: horizontal-tb;
+        bottom: auto;
+        top: -30px;
+    }
+}*/

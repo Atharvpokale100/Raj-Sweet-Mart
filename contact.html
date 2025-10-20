@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - RajSweetMart</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/contact.css">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bellefair&family=Intel+One+Mono:ital,wght@0,300..700;1,300..700&family=Merienda:wght@300..900&family=Noto+Sans+Sunuwar&display=swap');
+    </style>
+
+</head>
+<!-- Announcement Bar -->
+<!-- Scrolling Announcement Bar -->
+<div class="announcement-bar">
+    <div class="scrolling-text">
+        🎉 <strong>Festive Special Deals are Live Now! ✨</strong>
+        Enjoy | <strong>Get Diwali-Special अनरसा करंजी चकली |</strong>
+        <strong>FREE Delivery Available only in Badnera</strong> on orders above ₹999/- |
+        Hurry up! Limited time festive offer ⏰
+
+    </div>
+</div>
+
+<body class="background-image">
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo"><a href="index.html" style="text-decoration: none; color: inherit;">RAJ SWEET MART</a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-button">Home</a>
+                <a href="menu.html" class="nav-button">Menu</a>
+                <a href="diwali.html" class="nav-button">Diwali-Special</a>
+                <a href="contact.html" class="nav-button">Contact</a>
+            </div>
+
+            <!-- Theme toggle button -->
+            <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle light/dark mode" type="button">
+                <i class="fas fa-moon"></i>
+            </button>
+
+            <button class="mobile-menu-btn" onclick="toggleMobileMenu()">
+                <span id="menu-icon">☰</span>
+            </button>
+        </div>
+
+        <div class="mobile-nav" id="mobile-nav">
+            <div class="mobile-nav-header">
+                <div class="logo">
+                    <a href="index.html" style="text-decoration: none; color: inherit;">RAJ SWEET MART</a>
+                </div>
+                <button class="mobile-menu-close-btn" onclick="toggleMobileMenu()">&times;</button>
+            </div>
+            <a href="index.html" class="mobile-nav-link">Home</a>
+            <a href="menu.html" class="mobile-nav-link">Menu</a>
+            <a href="diwali.html" class="mobile-nav-link">Diwali-Special</a>
+            <a href="contact.html" class="mobile-nav-link">Contact</a>
+        </div>
+
+        <!-- Mobile menu overlay -->
+        <div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+    </nav>
+    <!-- Main Content: Map and Contact Info -->
+    <main class="main-content" style="padding: 40px 0 0 0;">
+        <!-- Contact Page Header -->
+        <header class="menu-header">
+            <div class="menu-header-content">
+                <h1>Contact Us</h1>
+                <br><br>
+                <p>Have a question or craving? Reach out to Raj Sweet Mart on WhatsApp or Email!</p>
+                <br>
+                <br>
+            </div>
+        </header>
+
+        <section class="map-section" style="padding: 0;">
+            <div class="container" style="max-width: 1000px; margin: 0 auto;">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4160.260312481276!2d77.73498851117103!3d20.863398393356693!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bd6bb3bf072e14d%3A0xbf6accdca4ea7314!2sRaj%20Sweet%20Mart!5e1!3m2!1sen!2sin!4v1755716074371!5m2!1sen!2sin"
+                    width="100%" height="450"
+                    style="border:0; border-radius: 16px; box-shadow: 0 4px 24px rgba(0,0,0,0.08);" allowfullscreen=""
+                    loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+        </section>
+        <div style="display: flex; 
+        justify-content: center; 
+        margin: 70px 0 130px 0;">
+            <a href="https://www.google.com/maps/place/Raj+Sweet+Mart/@20.8633289,77.736937,18z/data=!4m6!3m5!1s0x3bd6bb3bf072e14d:0xbf6accdca4ea7314!8m2!3d20.8633934!4d77.7375688!16s%2Fg%2F11k56mp0mk?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D"
+                target="_blank" rel="noopener" class="map-btn">Get Directions</a>
+        </div>
+
+        <a href="https://wa.me/+919850937027" class="sticky-whatsapp" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+        <div class="text-container">
+            <p class="text">
+                Want to place an order or ask something? Get in touch with Raj Sweet Mart directly!
+                
+            </p>
+        </div>
+
+
+        <!-- WhatsApp Floating Button -->
+
+
+        <!-- Footer -->
+        <footer class="footer">
+            <a href="index.html" class="footer-brand">Raj Sweet Mart</a>
+            <br><br>
+            <div class="footer-container">
+                <!-- Column 1: About -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">ABOUT US</h3>
+                    <p>A legacy of taste since 1989, serving the best sweets for all your celebrations.</p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">QUICK LINKS</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="diwali.html">Diwali Special</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">CONTACT US</h3>
+                    <div class="contact-info">
+                        <a href="https://www.google.com/maps/place/Raj+Sweet+Mart/@20.8633289,77.736937,18.17z/data=!4m14!1m7!3m6!1s0x3bd6bb3bf072e14d:0xbf6accdca4ea7314!2sRaj+Sweet+Mart!8m2!3d20.8633934!4d77.7375688!16s%2Fg%2F11k56mp0mk!3m5!1s0x3bd6bb3bf072e14d:0xbf6accdca4ea7314!8m2!3d20.8633934!4d77.7375688!16s%2Fg%2F11k56mp0mk?entry=ttu&g_ep=EgoyMDI1MDcwOS4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            style="color: inherit; text-decoration: none; display: flex; align-items: center;">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <p style="margin-left: 8px;">Near Lad Mobile Shop, Bari Pura Old Town Badnera , Amravati</p>
+                        </a>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fa-solid fa-phone"></i>
+                        <p>
+                            <a href="tel:+9850937027" style="color: inherit; text-decoration: none;">+9850937027</a>,
+                            <a href="tel:+9763044667" style="color: inherit; text-decoration: none;">+9763044667</a>,
+                            <a href="tel:+7387191610" style="color: inherit; text-decoration: none;">+7387191610</a>,
+                            <a href="tel:+9130328618" style="color: inherit; text-decoration: none;">+9130328618</a>
+                        </p>
+                    </div>
+                    <div class="contact-info">
+                        <i class="fas fa-envelope"></i>
+                        <p>
+                            <a href="mailto:atharvpokale10@gmail.com" style="color: inherit; text-decoration: none;">
+                                atharvpokale10@gmail.com
+                            </a>
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Column 4: Special Offers -->
+                <div class="footer-column">
+                    <h3 class="footer-heading">SPECIAL OFFERS</h3>
+                    <ul class="special-offers-list">
+                        <li>
+                            <span class="material-symbols-outlined">moped_package</span>
+                            <span>Free Delivery only on Badnera orders above ₹2000</span>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-tag"></i>
+                            <span>Bulk order discounts available</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Raj Sweet Mart. Designed by Atharv Pokale</p>
+            </div>
+        </footer>
+
+        <script src="/js/script.js"></script>
+        <script src="/js/contact.js"></script>
+</body>
+
+</html>

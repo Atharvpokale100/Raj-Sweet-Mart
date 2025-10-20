@@ -1,0 +1,1000 @@
+/* Simplified Diwali Page Styles */
+
+.sweets-section {
+    padding: 4rem 2rem;
+    background: transparent;
+    margin-top: -20px;
+}
+
+.sweets-title {
+    text-align: center;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    color: #000000;
+    font-weight: 800;
+    margin-bottom: 3rem;
+    position: relative;
+    /*margin-right: 78%;
+    background-image: none;*/
+}
+
+.sweets-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sweet-item {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.3s ease, transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    color: #1a202c;
+    margin-top: auto;
+    opacity: 1;
+    transform: scale(1);
+}
+
+.sweet-item[style*="display: none"] {
+    display: none !important;
+}
+
+.sweet-item.hidden {
+    opacity: 0;
+    transform: scale(0.8);
+    pointer-events: none;
+}
+
+.sweet-item.visible {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+.sweet-item:hover {
+    transform: translateY(-10px);
+}
+
+.sweet-image {
+    height: 220px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.4s ease-out;
+}
+
+.sweet-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease-out;
+}
+
+.sweet-item:hover .sweet-photo {
+    transform: scale(1.04);
+    -webkit-transform: scale(1.04);
+    -moz-transform: scale(1.04);
+    -ms-transform: scale(1.04);
+    -o-transform: scale(1.04);
+}
+
+.sweet-details {
+    padding: 1.5rem;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.sweet-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 0.75rem;
+}
+
+.sweet-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-top: auto;
+}
+
+
+.sweet-price {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-top: auto;
+}
+
+/* Remove gaps between sections */
+.main-content {
+    padding: 0 !important;
+    /* Override inline style */
+}
+
+.diwali-header-section {
+    padding: 0;
+    margin: 0;
+}
+
+.diwali-header-content {
+    padding: 20px 0;
+    margin: 0;
+}
+
+/* Announcement bar */
+/* Announcement Bar */
+.announcement-bar {
+    width: 100%;
+    background: #004d46;
+    color: #fff;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 8px 0;
+    position: fixed;
+    /* fixed at very top */
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    /* stays above everything */
+}
+
+/* Navbar (push it below announcement bar) */
+.navbar {
+    margin-top: 35px;
+    /* same height as announcement bar */
+}
+
+
+/* Scrolling text */
+.scrolling-text {
+    display: inline-block;
+    padding-left: 100%;
+    /*Startcompletelyoffscreen*/
+    animation: scroll-left 30s linear infinite;
+    -webkit-animation: scroll-left 50s linear infinite;
+}
+
+@keyframes scroll-left {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+/* Push content down so navbar/page doesn't overlap */
+body {
+    margin-top: 40px;
+    /* adjust height same as bar height */
+}
+
+
+/* Ensure header text remains properly spaced */
+.diwali-header-content h1 {
+    margin: 0 0 15px 0;
+}
+
+.diwali-header-content p {
+    margin: 10px 0;
+}
+
+/* Responsive Design */
+/* Responsive styles for sweets container */
+@media (max-width: 1200px) {
+    .sweets-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .sweets-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .sweets-container {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*.sweets-section {
+    font-family: 'Bellefair', serif;
+}*/
+
+.sweets-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+}
+
+.category-btn {
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background-color: #e8650e;
+    border-color: #e8650e;
+}
+
+.text {
+    font-size: 1.2rem;
+    /* slightly bigger text */
+    font-weight: 500;
+    /* medium bold */
+    color: #444;
+    /* dark gray */
+    text-align: center;
+    /* center align */
+    margin: 50px 0;
+    /* space above and below */
+    line-height: 1.6;
+    /* better readability */
+}
+
+.dark-theme .text {
+    color: #ddd;
+    /* lighter color for dark mode */
+}
+
+/* Modal Styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1001;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.3s ease;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 10px 40px rgba(255, 255, 255, 0.297);
+    position: relative;
+    animation: slideIn 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    font-size: 1.5rem;
+    color: #8B4513;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #D2691E;
+    text-decoration: none;
+    transform: scale(1.1);
+}
+
+.modal-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(139, 69, 19, 0.1);
+}
+
+.modal-title {
+    font-size: 2rem;
+    color: #A0522D;
+    margin-bottom: 1rem;
+}
+
+.modal-description,
+.modal-price,
+.modal-ingredients,
+.modal-weights {
+    font-size: 1rem;
+    color: #694E4E;
+    line-height: 1.7;
+    margin-bottom: 0.75rem;
+}
+
+.modal-price {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #D2691E;
+}
+
+.modal-ingredients,
+.modal-weights {
+    font-style: italic;
+}
+
+/* Simple Animations for Modal */
+@keyframes fadeIn {
+    from {
+        background-color: rgba(0, 0, 0, 0);
+    }
+
+    to {
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* Diwali Special Header Section */
+.diwali-special-section {
+    padding: 4rem 2rem;
+    text-align: center;
+    position: relative;
+
+    /* Glassmorphism Effect */
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    /* For Safari */
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.2);
+
+    width: 100%;
+    box-sizing: border-box;
+    /* Ensures padding is included in the width */
+}
+
+.diwali-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.diwali-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: #000000;
+    /* Gold */
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+}
+
+.diwali-subtitle {
+    font-size: clamp(1rem, 2.5vw, 1.25rem);
+    color: #4A4A4A;
+    /* Dark Gray */
+    font-weight: 400;
+}
+
+/* Dark theme styles for Diwali section */
+.dark-theme .diwali-special-section {
+    background: rgba(44, 62, 80, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .diwali-title {
+    color: #ffffff;
+}
+
+.dark-theme .diwali-subtitle {
+    color: #ecf0f1;
+}
+
+/* Dark theme styles for sweets section */
+.dark-theme .sweets-title {
+    color: #ffffff;
+}
+
+.dark-theme .sweet-item {
+    background: rgba(44, 62, 80, 0.8);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dark-theme .sweet-name {
+    color: #ff6b6b;
+}
+
+.dark-theme .sweet-description {
+    color: #bdc3c7;
+}
+
+/* Dark theme styles for modal */
+.dark-theme .modal-content {
+    background: #2c3e50;
+    color: white;
+}
+
+.dark-theme .modal-title {
+    color: #ff6b6b;
+}
+
+.dark-theme .modal-description,
+.dark-theme .modal-ingredients,
+.dark-theme .modal-weights {
+    color: #ecf0f1;
+}
+
+.dark-theme .modal-price {
+    color: #ff6b6b;
+}
+
+.dark-theme .modal-close {
+    color: #ff6b6b;
+}
+
+.dark-theme .modal-close:hover {
+    color: #ff8e53;
+}
+
+/* Diwali Page Header Section */
+.diwali-header-section {
+    text-align: center;
+    padding: 15px 20px 0 20px;
+}
+
+.diwali-header-content {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.diwali-header-section h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    font-family: "Noto Serif", serif;
+    margin-bottom: 40px;
+    color: black;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.08);
+}
+
+.diwali-header-section p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+    line-height: 1.6;
+    /*margin-bottom: 0px;*/
+    color: black;
+}
+
+.dark-theme .diwali-header-section h1,
+.dark-theme .diwali-header-section p {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+@media (max-width: 768px) {
+    .diwali-header-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .diwali-header-section p {
+        font-size: 1rem;
+    }
+
+    .diwali-header-section {
+        padding: 40px 10px 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .diwali-header-section h1 {
+        font-size: 2rem;
+        margin-top: -28px;
+    }
+
+    .diwali-header-section {
+        padding: 30px 5px 0 5px;
+    }
+}
+
+/* Fix for inverted contact icons in footer */
+.contact-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+/* Header Slider */
+.header-slider {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-container {
+    display: flex;
+    width: 500%;
+    /* 100% × number of images */
+    height: 100%;
+    animation: slideShow 10s infinite;
+    /* 2s × number of images */
+}
+
+.slider-image {
+    width: 20%;
+    /* 100% ÷ number of images */
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-track {
+    display: flex;
+    width: 500%;
+    height: 100%;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    width: 20%;
+    height: 100%;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slider-button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.8);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    color: #333;
+    z-index: 10;
+    transition: all 0.3s ease;
+}
+
+.slider-button:hover {
+    background: rgba(255, 255, 255, 0.95);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.prev {
+    left: 10px;
+}
+
+.next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .header-slider {
+        height: 300px;
+    }
+
+    .slider-button {
+        width: 35px;
+        height: 35px;
+        font-size: 18px;
+    }
+}
+
+/* Header Slider */
+.header-slider {
+    width: 100%;
+    max-width: 800px;
+    height: 300px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+}
+
+.slider-container {
+    display: flex;
+    width: 500%;
+    /* 100% × number of images */
+    height: 100%;
+    animation: slideShow 10s infinite;
+    /* 2s × number of images */
+}
+
+.slider-image {
+    width: 20%;
+    /* 100% ÷ number of images */
+    height: 100%;
+    object-fit: cover;
+}
+
+@keyframes slideShow {
+    0% {
+        transform: translateX(0);
+    }
+
+    20% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-20%);
+    }
+
+    45% {
+        transform: translateX(-20%);
+    }
+
+    50% {
+        transform: translateX(-40%);
+    }
+
+    70% {
+        transform: translateX(-40%);
+    }
+
+    75% {
+        transform: translateX(-60%);
+    }
+
+    95% {
+        transform: translateX(-60%);
+    }
+
+    100% {
+        transform: translateX(-80%);
+    }
+}
+
+/* Mobile view center alignment for special offers */
+@media (max-width: 768px) {
+    .special-offers-list {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .special-offers-list li {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 15px;
+    }
+
+    .special-offers-list i {
+        margin-right: 8px;
+    }
+
+    .footer-column h3.footer-heading {
+        text-align: center;
+    }
+
+    .footer-column p {
+        text-align: center;
+    }
+}
+
+/* Footer border for dark mode */
+.footer {
+    position: relative;
+}
+
+.dark-theme .footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: #393939;
+    /* Missing semicolon after #aaa */
+    width: 100%;
+    /* 'width;' had a semicolon instead of colon */
+}
+
+
+/* Footer heading link styling */
+.footer>a {
+    display: inline-block;
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #aaa;
+    text-decoration: none;
+    margin: 0 0 40px 13px;
+    margin-top: -1rem;
+    /*font-family: 'Georgia', serif;*/
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.footer>a:hover {
+    color: #e25f38;
+    /*text-shadow: 0 2px 8px rgba(212, 175, 55, 0.4);*/
+}
+
+/* Mobile responsive - CENTER ONLY ON MOBILE */
+@media (max-width: 768px) {
+    .footer>a {
+        font-size: 3rem;
+        text-align: center;
+        margin: 0 0 20px 0;
+    }
+}
+
+
+.footer-heading {
+    font-family: 'Bellefair', serif;
+    font-weight: normal;
+}
+
+.footer-brand {
+    /*font-family: 'Barlow Condensed', sans-serif !important;*/
+    font-size: 2rem;
+    font-weight: 700;
+    color: rgb(253, 54, 54);
+}
+
+.footer-brand {
+    /*font-family: "Bellefair", serif;*/
+
+    font-family: "Merienda", cursive;
+    /*font-family: "Noto Sans Sunuwar", sans-serif;*/
+    /*font-family: "Quintessential", serif;*/
+    font-size: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .dark-theme .slider-image {
+        background-color: #000000;
+    }
+
+    .header-slider {
+        display: block;
+        position: relative;
+        width: 100%;
+        height: 250px;
+        overflow: hidden;
+        border-radius: 12px;
+        margin: 20px auto;
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0);
+    }
+
+    .slider-container {
+        display: flex;
+        width: 500%;
+        /* 5 images × 100% */
+        height: 100%;
+        animation: slide 15s infinite;
+        /* 3s per slide × 5 slides */
+    }
+
+    .slider-image {
+        width: 20%;
+        /* 100% ÷ 5 images */
+        height: 100%;
+        object-fit: contain;
+        /* Changed from 'cover' to 'contain' */
+        flex-shrink: 0;
+        background-color: #ffffff;
+        /* Optional: adds background color for letterboxing */
+    }
+
+    /* Add the slide animation */
+    @keyframes slide {
+        0% {
+            transform: translateX(0);
+        }
+
+        20% {
+            transform: translateX(0);
+        }
+
+        25% {
+            transform: translateX(-20%);
+        }
+
+        45% {
+            transform: translateX(-20%);
+        }
+
+        50% {
+            transform: translateX(-40%);
+        }
+
+        70% {
+            transform: translateX(-40%);
+        }
+
+        75% {
+            transform: translateX(-60%);
+        }
+
+        95% {
+            transform: translateX(-60%);
+        }
+
+        100% {
+            transform: translateX(-80%);
+        }
+    }
+}
+
+.sweets-section {
+    font-family: "Noto Serif", serif;
+}
+
+.sweets-title {
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 800;
+}
+
+.category-btn {
+    background-color: #2f2f2f;
+    color: white;
+}
+
+.category-btn:hover,
+.category-btn.active {
+    background-color: #e8650e;
+    border-color: #e8650e;
+}
+
+/* Modal Background */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Modal Box */
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Close Button */
+.close {
+    position: absolute;
+    top: 12px;
+    right: 18px;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.material-symbols-outlined {
+    font-size: 20px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+.diwali-banner {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+}
+
+.diwali-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+    .diwali-banner {
+        height: auto;
+        min-height: 200px;
+    }
+
+    .diwali-image {
+        width: 100%;
+        height: auto;
+        object-fit: contain;
+        max-height: 300px;
+    }
+}
+
+/* Extra small mobile devices */
+@media (max-width: 480px) {
+    .diwali-banner {
+        min-height: 150px;
+    }
+
+    .diwali-image {
+        max-height: 200px;
+        object-fit: contain;
+    }
+}
+
+/* Tablet devices (769px to 1024px) */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+    .diwali-banner {
+        height: 400px;
+        overflow: hidden;
+    }
+
+    .diwali-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
